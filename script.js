@@ -1,9 +1,23 @@
+const darkModeToggle = document.getElementById("darkModeToggle");
 const tempInput = document.getElementById("tempInput");
 const fromUnit = document.getElementById("fromUnit");
 const toUnit = document.getElementById("toUnit");
 const swapBtn = document.getElementById("swapBtn");
 const convertBtn = document.getElementById("convertBtn");
 const resultText = document.getElementById("resultText");
+
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  darkModeToggle.textContent = "☀️";
+}
+
+darkModeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  darkModeToggle.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
 
 const unitIcons = {
   Celsius: "🌡️",

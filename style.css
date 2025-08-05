@@ -3,27 +3,52 @@
   --button-bg: #000;
   --button-disabled-bg: #999;
   --background-color: #eaf1f8;
-  --border-radius: 12px;
+  --card-bg: #fff;
+  --text-color: #000;
+  --result-color: green;
+}
+
+body.dark {
+  --background-color: #121212;
+  --card-bg: #1f1f1f;
+  --text-color: #eee;
+  --button-disabled-bg: #666;
+  --result-color: #90ee90;
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
   background: var(--background-color);
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 1rem;
   overflow: hidden;
+  transition: background 0.3s, color 0.3s;
 }
 
 .card {
-  background: #fff;
+  position: relative;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   max-width: 480px;
   width: 100%;
+  transition: background 0.3s;
+}
+
+#darkModeToggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-color);
 }
 
 h2 {
@@ -70,7 +95,6 @@ select:focus {
 }
 
 #swapBtn:hover {
-  background-color: #dbe9ff;
   transform: rotate(180deg);
 }
 
@@ -97,7 +121,7 @@ select:focus {
 .result {
   margin-top: 1rem;
   font-size: 1rem;
-  color: green;
+  color: var(--result-color);
   text-align: center;
   opacity: 0;
   transform: translateY(10px);
