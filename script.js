@@ -39,7 +39,10 @@ convertBtn.addEventListener("click", () => {
     result = to === "Celsius" ? temp - 273.15 : ((temp - 273.15) * 9) / 5 + 32;
   }
 
+  resultText.classList.remove("show");
+  void resultText.offsetWidth;
   resultText.textContent = `${temp} ${
     unitIcons[from]
   } ${from} is ${result.toFixed(2)} ${unitIcons[to]} ${to}`;
+  resultText.classList.add("show");
 });
