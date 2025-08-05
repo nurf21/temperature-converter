@@ -39,24 +39,8 @@ h2 {
   margin: 1.5rem 0;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.row > input,
-.row > select,
-.row > button {
-  flex: 1 1 100%;
-}
-
-#swapBtn {
-  background-color: transparent;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.5rem;
+input[type="number"] {
+  width: 20%;
 }
 
 input[type="number"],
@@ -74,6 +58,24 @@ input:focus,
 select:focus {
   outline: none;
   border-color: var(--primary-color);
+}
+
+#swapBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.3s ease, background-color 0.2s;
+}
+
+#swapBtn:hover {
+  background-color: #dbe9ff;
+  transform: rotate(180deg);
+}
+
+#swapBtn:active {
+  transform: rotate(360deg);
 }
 
 #convertBtn {
