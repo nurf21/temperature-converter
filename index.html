@@ -15,12 +15,16 @@
     <div class="form-group">
       <div class="row">
         <input type="number" id="tempInput" placeholder="0.00" />
+
         <select id="fromUnit">
           <option value="">From Unit</option>
           <option value="Celsius">🌡️ Celsius</option>
           <option value="Fahrenheit">🔥 Fahrenheit</option>
           <option value="Kelvin">❄️ Kelvin</option>
         </select>
+
+        <button type="button" id="swapBtn" title="Swap Units">🔄</button>
+
         <select id="toUnit">
           <option value="">To Unit</option>
           <option value="Celsius">🌡️ Celsius</option>
@@ -28,6 +32,7 @@
           <option value="Kelvin">❄️ Kelvin</option>
         </select>
       </div>
+
       <button id="convertBtn" disabled>Convert</button>
     </div>
 

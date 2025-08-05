@@ -1,6 +1,7 @@
 const tempInput = document.getElementById("tempInput");
 const fromUnit = document.getElementById("fromUnit");
 const toUnit = document.getElementById("toUnit");
+const swapBtn = document.getElementById("swapBtn");
 const convertBtn = document.getElementById("convertBtn");
 const resultText = document.getElementById("resultText");
 
@@ -21,6 +22,16 @@ function validateForm() {
 tempInput.addEventListener("input", validateForm);
 fromUnit.addEventListener("change", validateForm);
 toUnit.addEventListener("change", validateForm);
+
+swapBtn.addEventListener("click", () => {
+  const fromValue = fromUnit.value;
+  const toValue = toUnit.value;
+
+  fromUnit.value = toValue;
+  toUnit.value = fromValue;
+
+  validateForm();
+});
 
 convertBtn.addEventListener("click", () => {
   const temp = parseFloat(tempInput.value);
