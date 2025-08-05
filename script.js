@@ -30,7 +30,12 @@ function stripEmoji(text) {
 }
 
 function validateForm() {
-  convertBtn.disabled = !(tempInput.value && fromUnit.value && toUnit.value);
+  const isInputFilled = tempInput.value && fromUnit.value && toUnit.value;
+  const canSwap = fromUnit.value && toUnit.value;
+
+  convertBtn.disabled = !isInputFilled;
+  swapBtn.disabled = !canSwap;
+  swapBtn.title = canSwap ? "Swap units" : "Select both units to enable swap";
 }
 
 tempInput.addEventListener("input", validateForm);
