@@ -4,6 +4,16 @@ const toUnit = document.getElementById("toUnit");
 const convertBtn = document.getElementById("convertBtn");
 const resultText = document.getElementById("resultText");
 
+const unitIcons = {
+  Celsius: "🌡️",
+  Fahrenheit: "🔥",
+  Kelvin: "❄️",
+};
+
+function stripEmoji(text) {
+  return text.replace(/[^a-zA-Z]/g, "").trim();
+}
+
 function validateForm() {
   convertBtn.disabled = !(tempInput.value && fromUnit.value && toUnit.value);
 }
@@ -14,8 +24,8 @@ toUnit.addEventListener("change", validateForm);
 
 convertBtn.addEventListener("click", () => {
   const temp = parseFloat(tempInput.value);
-  const from = fromUnit.value;
-  const to = toUnit.value;
+  const from = stripEmoji(fromUnit.value);
+  const to = stripEmoji(toUnit.value);
   let result;
 
   if (from === to) {
@@ -29,5 +39,7 @@ convertBtn.addEventListener("click", () => {
     result = to === "Celsius" ? temp - 273.15 : ((temp - 273.15) * 9) / 5 + 32;
   }
 
-  resultText.textContent = `${temp} ${from} is ${result.toFixed(2)} ${to}`;
+  resultText.textContent = `${temp} ${
+    unitIcons[from]
+  } ${from} is ${result.toFixed(2)} ${unitIcons[to]} ${to}`;
 });
